@@ -1,0 +1,152 @@
+Week 5: Create an xml for the bookstore. Validate the same using both DTD and XSD.
+
+Programs:
+
+Lab.dtd
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT books (book*)>
+<!ELEMENT book (title, author, isbn, publisher, edition, price)>
+	<!ELEMENT title (#PCDATA)>
+	<!ELEMENT author (#PCDATA)>
+	<!ELEMENT isbn (#PCDATA)>
+	<!ELEMENT publisher (#PCDATA)>
+	<!ELEMENT edition (#PCDATA)>
+	<!ELEMENT price (#PCDATA)>
+
+Bookstab.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE bookstab SYSTEM "lab.dtd">
+<?xml-stylesheet type="text/xsl" href="books.xsl"?>
+<books>
+<book>
+<title>Programming the World Wide Web</title>
+<author>Robert W. Sebesta</author>
+		<isbn>1234-5678</isbn>
+<publisher>Tata McGraw-Hill</publisher>
+<edition>Seventh</edition>
+		<price>300</price>
+</book>
+<book>
+<title>Web Technologies</title>
+<author>Uttam K Roy</author>
+		<isbn>2345-1234</isbn>
+<publisher>Oxford University Press</publisher>
+<edition>First</edition>
+		<price>350</price>
+</book>
+<book>
+<title>The Complete Reference PHP</title>
+<author>Steven Holzner</author>
+		<isbn>4567-8970</isbn>
+<publisher>Tata McGraw-Hill</publisher>
+<edition>Second</edition>
+		<price>500</price>
+</book>
+<book>
+<title>Java Script</title>
+<author>D Flanagan</author>
+		<isbn>1234-9876</isbn>
+<publisher>Tata</publisher>
+<edition>Second</edition>
+		<price>350</price>
+</book>
+<book>
+<title>Web Programming, Building Internet Applications ,  2nd edition , Wiley</title>
+<author>Chris Bates</author>
+		<isbn>3456-8976</isbn>
+<publisher>Wiley</publisher>
+<edition>Second</edition>
+		<price>240</price>
+</book>
+
+</books>
+
+
+Output:
+
+
+
+
+
+
+
+
+
+
+
+
+SchemaEmp.xsd
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+ xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://www.eswar.com" 
+xmlns="http://www.eswar.com" 
+elementFormDefault="qualified">
+
+	<xs:element name="emp">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="empno" type="xs:int"/>
+				<xs:element name="empname" type="xs:string"/>
+				<xs:element name="empsal" type="xs:decimal" />
+				<xs:element name="dept" type="xs:string" fixed="IT"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
+
+
+
+SchemaEmp.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<emp xmlns="http://www.eswar.com"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.eswar.com SchemaEmp.xsd">
+
+	<empno>1201</empno>
+	<empname>eswar</empname>
+	<empsal>300.50</empsal>
+	<dept>IT</dept>
+</emp>
+
+
+
+
+
+
+
+
+
+
+
+
+
+Output:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
