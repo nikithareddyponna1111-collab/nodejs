@@ -1,0 +1,292 @@
+Week1: Build a responsive web application for shopping cart with registration, login, catalog and cart
+pages using CSS3 features, flex and grid.
+
+Index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .catalog {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+        }
+        .cart {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+        }
+        .product-card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+        }
+        .product-card:hover {
+            background-color: #e5e5e5;
+        }
+        .cart-items {
+            list-style-type: none;
+            padding: 0;
+        }
+        .cart-item {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Shopping Cart</h1>
+        <nav>
+            <ul>
+                <li><a href="#catalog">Catalog</a></li>
+                <li><a href="#cart">Cart</a></li>
+                <li><a href="./login.html">Login</a></li>
+                <li><a href="./Registration.html">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="catalog">
+            <h2>Catalog</h2>
+            <div class="product-card">
+                <h3>Product 1</h3>
+                <p>$20</p>
+                <button onclick="addToCart(20)">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <h3>Product 2</h3>
+                <p>$30</p>
+                <button onclick="addToCart(30)">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <h3>Product 3</h3>
+                <p>$25</p>
+                <button onclick="addToCart(25)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="cart">
+            <h2>Cart</h2>
+            <ul class="cart-items" id="cartItems">
+                <!-- Cart items will be displayed here -->
+            </ul>
+            <p>Total Cost: <span id="totalCost">$0</span></p>
+        </div>
+    </div>
+    <script>
+        let cartTotal = 0;
+        
+        function addToCart(price) {
+            cartTotal += price;
+            document.getElementById('totalCost').textContent = `$${cartTotal}`;
+        }
+    </script>
+</body>
+</html>
+Output:
+
+
+Login.html
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Login Form Design using flexbox</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body style="background-color: #988c8c;">
+    <div class="form-box" style="display: flex;
+justify-content: center;">
+        <div class="wrapper">
+            <div class="img-area">
+                <img src="1.png" alt="">
+            </div>
+            <div class="form-area">
+                <h3>Login Form</h3>
+                <form>
+                    <div class="single-form">
+                        <input type="text" style="    height: 30px;
+width: 200px;     border-radius: 10px;
+
+" placeholder="Username" />
+                    </div>
+                    <div class="single-form" style="padding-block: 15px"><input type="password" style="    height: 30px;    border-radius: 10px;
+
+    width: 200px;
+" placeholder="Password" />
+                    </div>
+                    <input type="submit" style="    margin-left: 37px;
+height: 30px;
+width: 100px;" value="Login" />
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+Registration.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #988c8c;
+        }
+        form {
+            background-color: #fff;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        input[type="submit"],
+        input[type="button"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #988c8c;
+            color: #fff;
+            cursor: pointer;
+            margin-left: 90px;
+        }
+    </style>
+</head>
+<body>
+    <form id="Reset">
+        <h1>Student Registration Form</h1>
+        <label>Firstname:</label>
+        <input type="text" name="firstname" size="30"/><br>
+        <label>Middlename:</label>
+        <input type="text" name="middlename" size="30"/><br>
+        <label>Lastname:</label>
+        <input type="text" name="lastname" size="30"/><br><br>
+        
+        <label>Gender:</label><br>
+        <input type="radio" name="gender" value="male" /> Male
+        <input type="radio" name="gender" value="female"/> Female <br><br>
+        
+        <label>Phone:</label>
+        <input type="text" name="country code" value="+91" size="2"/>
+        <input type="text" name="phone" size="10"/><br><br>
+        
+        <label>Address:</label><br>
+        <textarea cols="80" rows="5" name="address"></textarea><br><br>
+        
+        <input type="submit" name="submit" value="Submit">
+        <input type="button" value="Reset" onClick="fun()"/>
+        <script> 
+            function fun(){
+                document.getElementById("Reset").reset();
+            }
+        </script>
+    </form>
+</body>
+</html>
+
+
+
+
+
+
+Styles.css
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    }
+    header {
+        background-color: #988c8c;
+color: #fff;
+padding: 10px;
+text-align: center;
+
+}
+nav ul {
+list-style: none;
+padding: 0;
+display: flex;
+justify-content: center;
+}
+nav li {
+margin: 0 10px;
+}
+main {
+padding: 20px;
+}
+nav{
+    display: flex;
+justify-content: center;
+}
+/* Add more styles based on your design */
+
+
+
+
